@@ -9,6 +9,8 @@ source "https://rubygems.org"
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
 gem "jekyll", "~> 3.7.3"
+gem "html-proofer"
+gem "rb-fsevent", "0.10.3"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do

@@ -10,10 +10,25 @@ To add new posts, simply add a file in the `_posts` directory that follows the c
 
 Jekyll also offers powerful support for code snippets:
 
-{% highlight js %}
-  <toggle/>
-  console.log('hi');
-  <toggle/>
+{% highlight elixir %}
+defmodule TriePopulatorTwo do
+  @ti TrieInserter
+  @tm TrieMerger
+  @p Parallel
+
+  def populate(words \\ "")
+
+  def populate(word_list) when is_list(word_list) do
+    word_list
+    |> @p.map(&@ti.insert/1)
+    |> Enum.reduce(%{}, &@tm.merge/2)
+  end
+
+  def populate(words_text) when is_binary(words_text) do
+    String.split(words_text, "\n")
+    |> populate
+  end
+end
 {% endhighlight %}
 
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
